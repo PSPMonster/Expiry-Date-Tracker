@@ -1,34 +1,60 @@
 package pl.wikdev.expirydatetracker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView yourName;
+    RecyclerView recyclerView;
+    MyDatabaseHelper myDB;
+    ArrayList<String> product_title, product_expiry_date;
+    CustomAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_menu);
 
-        TextView yourName = findViewById(R.id.yourName);
-        EditText inputName = (EditText) findViewById(R.id.textInputEditText_name);
+        recyclerView = findViewById(R.id.show_products);
+        myDB = new MyDatabaseHelper(MainActivity.this);
+        product_title = new ArrayList<>();
+        product_expiry_date = new ArrayList<>();
 
+        storeDataInArrays();
 
-        final Button saveName = findViewById(R.id.buttonSaveName);
-        saveName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String str = inputName.getText().toString();
-                yourName.setText("Your name: " + str);
-            }
-        });
+        customAdapter = new CustomAdapter(MainActivity.this, product_title, product_expiry_date);
+        recyclerView.setAdapter(customAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
 
+    public void exitApp(View view) {
+        finish();
+    }
+
+    public void addProduct(View view) {
+        Intent intent = new Intent(this, AddProductActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.xml.fade_in, R.xml.fade_out);
+    }
+
+    void storeDataInArrays() {
+        Cursor cursor = myDB.readAllData();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
+        } else {
+            while (cursor.moveToNext()) {
+                product_title.add(cursor.getString(1));
+                product_expiry_date.add(cursor.getString(2));
+            }
+        }
+    }
 }

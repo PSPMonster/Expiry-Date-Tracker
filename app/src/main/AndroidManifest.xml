@@ -9,9 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExpiryDateTracker">
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/fade_out" />
+
+        <activity
+            android:name=".AddProductActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:label="YourAppName">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

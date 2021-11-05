@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Expiry Date Tracker</string>
+    <string name="NoNameWarning">Insert your name!</string>
+    <string name="date_format">Format: dd/mm/yy</string>
+    <string name="expiry_date">Expiry date</string>
+    <string name="title">TITLE</string>
+    <string name="recommended_product_name">Recommended product name</string>
 </resources>

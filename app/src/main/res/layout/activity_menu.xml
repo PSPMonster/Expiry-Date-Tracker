@@ -40,27 +40,77 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <!-- Add Product With Barcode -->
-        <ImageButton
-            android:id="@+id/btnAddProductWithBarcode"
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/transparent"
-            app:srcCompat="@drawable/add_product_with_barcode_icon"
-            tools:ignore="SpeakableTextPresentCheck" />
+            app:srcCompat="@drawable/add_product_icon">
+
+            <ImageButton
+                android:id="@+id/btnAddProductWithBarcode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.4"
+                android:backgroundTint="@android:color/transparent"
+                app:srcCompat="@drawable/add_product_with_barcode_icon"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/imgHammer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.9"
+                android:onClick="inDevelopment"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                app:srcCompat="@drawable/hammer_icon"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+        </FrameLayout>
+
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/show_products"
         android:layout_width="409dp"
-        android:layout_height="639dp"
-        android:layout_marginTop="3dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="2dp"
-        android:paddingTop="?attr/actionBarSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+
+    <!-- NO PRODUCTS -->
+    <ImageView
+        android:id="@+id/imgNoData"
+        android:layout_width="95dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:srcCompat="@drawable/no_data_icon"
+        android:visibility="gone"
+        android:alpha="0.6"/>
+
+    <!-- NO PRODUCTS -->
+    <TextView
+        android:id="@+id/txtNoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:alpha="0.8"
+        android:fontFamily="sans-serif-light"
+        android:text=" No Products."
+        android:textColor="#90709e"
+        android:textSize="17sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgNoData" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

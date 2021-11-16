@@ -12,7 +12,7 @@
         android:layout_marginTop="4dp"
         android:alpha="0.85"
         android:background="@drawable/product_row"
-        app:cardBackgroundColor="#0CFFFFFF"
+        app:cardBackgroundColor="#00FFFFFF"
         app:cardElevation="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,8 +56,34 @@
                 android:textColor="@color/black"
                 android:textSize="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.36"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+            <ImageButton
+                android:id="@+id/removeProduct"
+                android:layout_width="26dp"
+                android:layout_height="25dp"
+                android:backgroundTint="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/remove_product"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <ImageButton
+                android:id="@+id/editProduct"
+                style="@android:style/Widget.Holo.Light.ImageButton"
+                android:layout_width="30dp"
+                android:layout_height="28dp"
+                android:layout_marginRight="2dp"
+                android:backgroundTint="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="@+id/removeProduct"
+                app:layout_constraintEnd_toStartOf="@+id/removeProduct"
+                app:layout_constraintTop_toTopOf="@+id/removeProduct"
+                app:srcCompat="@drawable/edit_product_icon"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                android:onClick="updateProduct"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

@@ -17,7 +17,7 @@ Project is created with:
 
 * Android Studio - <img alt="Android studio" width="26px" src="https://cdn-icons-png.flaticon.com/512/226/226770.png" />
 * My brain in version: 2 - <img alt="Brain" width="26px" src="https://cdn-icons-png.flaticon.com/512/2491/2491314.png" />
-* Patient in verision: ∞ - <img alt="Patience" width="26px" src="https://cdn-icons.flaticon.com/png/512/3775/premium/3775861.png?token=exp=1637109405~hmac=2ae2078256730c7387e36ad8d9290d92" />
+* Patient in verision: ∞ - <img alt="Patience" width="26px" src="https://icon-library.com/images/patient-icon-png/patient-icon-png-15.jpg" />
  	
 ## Setup
 To run this project:
